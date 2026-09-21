@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #060708;
+  --color-coal: #0b0c0e;
+  --color-graphite: #141619;
+  --color-steel: #1d2025;
+  --color-line: #26292f;
+  --color-mist: #f2f4f3;
+  --color-body: #c6c9c9;
+  --color-muted: #8b9095;
+  --color-brand: #2fe6e0;
+  --color-brand-deep: #17b3ae;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-manrope), ui-sans-serif, sans-serif;
+  --font-display-italic: var(--font-archivo-italic), var(--font-archivo), sans-serif;
+}
+
+:root {
+  --background: #060708;
+  --foreground: #f2f4f3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #060708;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Outlined display text used as watermark / graphic type */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(242, 244, 243, 0.28);
+}
+
+.text-outline-cyan {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(47, 230, 224, 0.45);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ticker marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Subtle slow drift for the hero graphic */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-drift {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
