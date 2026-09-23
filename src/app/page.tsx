@@ -4,7 +4,6 @@ import { ShopSection } from "@/components/home/ShopSection";
 import { CustomizeBand } from "@/components/home/CustomizeBand";
 import { ProcessSteps } from "@/components/home/ProcessSteps";
 import { BrandStory } from "@/components/home/BrandStory";
-import { ContactStrip } from "@/components/home/ContactStrip";
 
 const ticker = [
   "Custom football jerseys",
@@ -25,7 +24,6 @@ export default function Home() {
       <CustomizeBand />
       <ProcessSteps />
       <BrandStory />
-      <ContactStrip />
     </>
   );
 }

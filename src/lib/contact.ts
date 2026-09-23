@@ -16,5 +16,5 @@ export function waLink(message: string): string {
 
 export function waNumberDisplay(raw: string): string {
   const d = raw.replace(/\D/g, "");
-  return `03${d.slice(1, 4)} ${d.slice(4, 7)} ${d.slice(7, 9)} ${d.slice(9)}`;
+  return `${d.slice(0, 4)} ${d.slice(4)}`;
 }
